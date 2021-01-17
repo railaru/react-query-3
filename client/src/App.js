@@ -1,26 +1,31 @@
-import { NavBar } from "./shared/NavBar"
 import { Switch, Route } from "react-router-dom";
-import { BooksList } from "./BooksList";
-import { CreateBook } from "./CreateBook";
+
+import Navbar from "./shared/Navbar";
 import { UpdateBook } from "./UpdateBook";
+import { CreateBook } from "./CreateBook";
+import { BooksList } from "./BooksList";
+import Container from "./shared/Container";
 
 function App() {
-  return (
-    <>
-      <NavBar />
-      <Switch>
-        <Route path="/create-book">
-          <CreateBook />
-        </Route>
-        <Route path="/update-book/:id">
-          <UpdateBook />
-        </Route>
-        <Route path="/">
-          <BooksList />
-        </Route>
-      </Switch>
-    </>
-  );
+    return (
+        <>
+            <Navbar />
+            <Switch>
+                <Route
+                    path="/update-book/:id"
+                    render={(props) => {
+                        return <UpdateBook {...props} />;
+                    }}
+                />
+                <Route path="/create-book">
+                    <CreateBook />
+                </Route>
+                <Route path="/" exact>
+                    <BooksList />
+                </Route>
+            </Switch>
+        </>
+    );
 }
 
 export default App;

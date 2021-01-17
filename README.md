@@ -13,3 +13,7 @@ Then in a separate tab open server and run:
 ```
 yarn && yarn start
 ```
+
+# API docs
+
+http://localhost:4000/api-docs/
